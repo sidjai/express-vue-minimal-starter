@@ -4,20 +4,11 @@ const router = exp.Router();
 const path = require('path');
 
 const expressVue = require('express-vue');
-/** 
- * You should use path for dealing with paths.. 
- * Its a good idea to give the full path to rootPath
-*/
-const expressVueMiddleware = expressVue.init({
-	rootPath: path.resolve(__dirname)
-});
+const expressVueMiddleware = expressVue.init();
 site.use(expressVueMiddleware);
 
 
 router.get('/', function(req, res) {
-	/**
-	 * if data, or vueOptions are empty you don't need to include them.
-	 */
 	res.renderVue('main.vue');
 });
 
