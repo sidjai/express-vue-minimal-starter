@@ -3,17 +3,22 @@
   "version": "0.0.1",
   "description": "Minimal Setup for express-vue",
   "main": "index.js",
-	"repository": {
+  "repository": {
     "type": "git",
     "url": "https://github.com/sidjai/express-vue-minimal-starter.git"
   },
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node index.js"
   },
   "author": "Siddarta Jairam",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
     "express-vue": "^5.0.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
   }
 }
