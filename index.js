@@ -1,23 +1,28 @@
 const exp = require('express');
 const site = exp();
-var server = require('http').createServer(site);
+const router = exp.Router();
+const path = require('path');
 
 const expressVue = require('express-vue');
+/** 
+ * You should use path for dealing with paths.. 
+ * Its a good idea to give the full path to rootPath
+*/
 const expressVueMiddleware = expressVue.init({
-	rootPath: './',
-	vueVersion: '2.3.4'
+	rootPath: path.resolve(__dirname)
 });
 site.use(expressVueMiddleware);
 
-const router = require('express').Router();
 
 router.get('/', function(req, res) {
-	res.renderVue('main.vue', {}, {});
+	/**
+	 * if data, or vueOptions are empty you don't need to include them.
+	 */
+	res.renderVue('main.vue');
 });
 
 site.use("/", router);
 
-server.listen('localhost', 1337);
-server.on('listening', function () {
-	console.log('Express server started on port %s at %s', server.address().port, server.address().address);
+site.listen(3000, function() {
+	console.log('Express server started on port %s', 3000);
 });
